@@ -11,6 +11,8 @@
     <meta property="og:image" content="https://nikhil-07.github.io/Portfolio-Nikhil-Jacob-J-2026/Linkedin_Preview.png">
 
     <title>Nikhil Jacob J. | Portfolio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
@@ -367,7 +369,6 @@
             box-shadow: 0 10px 20px rgba(255, 193, 59, 0.3);
         }
 
-        /* RESTORED: Only Yellow Background Wrapper Animates. Profile Image remains clean and steady */
         .hero-right {
             position: relative;
             width: 420px;
@@ -402,9 +403,19 @@
             z-index: 0;
         }
 
-        /* RESTORED: High Contrast Home Glass Badges Matrix */
+        .hero-right-badges-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 20;
+        }
+
         .glass-badge {
             position: absolute;
+            pointer-events: auto;
             background: rgba(0, 0, 0, 0.35);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -415,7 +426,6 @@
             font-size: 0.9rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             color: #fff;
-            z-index: 20;
             animation: floatBadge 6s infinite ease-in-out;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -637,7 +647,6 @@
             font-weight: 700;
         }
 
-        /* Symmetrical Hover Transformations on Education Cards */
         .about-middle-row {
             display: flex;
             gap: 30px;
@@ -997,7 +1006,6 @@
             color: #ffffff !important;
         }
 
-        /* Pro-Tip project banner text */
         .project-row-hint {
             text-align: center;
             font-size: 0.85rem;
@@ -1564,7 +1572,7 @@
         }
 
         /* ==========================================================================
-           EXCLUSIVE RESPONSIVE OPTIMIZATION OVERRIDES FOR MOBILE DELAY
+           CORE RESPONSIVE STABILIZATION MEDIA LAYER 
            ========================================================================== */
         @media (max-width: 992px) {
             .container {
@@ -1575,7 +1583,7 @@
                 padding: 20px 0;
             }
 
-            /* Structural optimization layer to neutralize screen stuttering */
+            /* Stops layout screen flickering loops on mobile devices */
             .bg-graphics {
                 position: absolute !important;
                 height: 100% !important;
@@ -1587,8 +1595,6 @@
             .bg-chart {
                 display: none !important;
             }
-
-            /* Drops heavy layout calculating elements on touch viewports */
 
             .mobile-menu-trigger {
                 display: block;
@@ -1637,12 +1643,12 @@
                 display: block;
             }
 
-            /* Re-wraps columns and stops overlap errors */
+            /* Formats columns cleanly on vertical layout monitors */
             .hero {
-                flex-direction: column-reverse;
-                text-align: center;
-                justify-content: center;
-                gap: 40px;
+                flex-direction: column-reverse !important;
+                text-align: center !important;
+                justify-content: center !important;
+                gap: 40px !important;
                 padding-top: 130px !important;
                 padding-bottom: 40px !important;
                 height: auto !important;
@@ -1676,31 +1682,43 @@
                 margin-top: 10px;
             }
 
-            /* Fluid static framing definitions for portrait badges */
+            /* Flattens the circular layout and kills overlap errors across badges */
             .hero-right {
                 margin: 0 auto !important;
                 width: 300px !important;
                 height: 300px !important;
                 animation: none !important;
                 border-radius: 50% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
             }
 
             .profile-img {
                 transform: scale(1.65) !important;
+                position: relative !important;
+                z-index: 10 !important;
             }
 
+            /* Re-maps floating badges into standard content boxes stacked cleanly under image asset */
             .hero-right-badges-container {
+                position: relative !important;
                 display: flex !important;
                 flex-wrap: wrap !important;
                 justify-content: center !important;
-                gap: 10px !important;
+                gap: 12px !important;
                 margin-top: 25px !important;
                 width: 100% !important;
+                height: auto !important;
+                top: auto !important;
+                left: auto !important;
             }
 
             .glass-badge {
                 position: relative !important;
-                display: inline-block !important;
+                display: inline-flex !important;
+                align-items: center !important;
                 top: auto !important;
                 left: auto !important;
                 right: auto !important;
@@ -1708,8 +1726,11 @@
                 margin: 0 !important;
                 transform: none !important;
                 animation: none !important;
-                font-size: 0.8rem !important;
-                padding: 8px 16px !important;
+                font-size: 0.85rem !important;
+                padding: 10px 20px !important;
+                background: rgba(23, 13, 88, 0.9) !important;
+                border: 1px solid rgba(255, 193, 59, 0.4) !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
             }
 
             .about-top-row {
@@ -1871,35 +1892,28 @@
                     <div class="hero-socials">
                         <a href="https://linkedin.com/in/nikhil-jacob-j/" target="_blank" rel="noopener noreferrer"
                             class="hero-social-icon" title="LinkedIn Profile">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
+                            <i class="fa-brands fa-linkedin-in" style="font-size: 1.3rem;"></i>
                         </a>
                         <a href="https://github.com/NIKHIL-07" target="_blank" rel="noopener noreferrer"
                             class="hero-social-icon" title="GitHub Profile">
-                            <svg height="20" width="22" viewBox="0 0 16 16" fill="currentColor">
-                                <path
-                                    d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82A7.48 7.48 0 0 0 8 2.93c-.68.004-1.36.09-2 .26-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.495 0 0 1 0 8c0-4.42 3.58-8 8-8Z">
-                                </path>
-                            </svg>
+                            <i class="fa-brands fa-github" style="font-size: 1.3rem;"></i>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="hero-right">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div class="hero-right">
+                    <div class="illustration-placeholder">
+                        <img src="Gemini_Generated_Image_1ys2u01ys2u01ys2-Photoroom.png" alt="Nikhil Illustration"
+                            class="profile-img">
+                    </div>
+                </div>
+
                 <div class="hero-right-badges-container">
                     <div class="glass-badge badge-1">📊 Data Analyst</div>
                     <div class="glass-badge badge-2">📈 Power BI Expert</div>
                     <div class="glass-badge badge-3">🤖 Data Scientist</div>
-                </div>
-                <div class="illustration-placeholder">
-                    <img src="Gemini_Generated_Image_1ys2u01ys2u01ys2-Photoroom.png" alt="Nikhil Illustration"
-                        class="profile-img">
                 </div>
             </div>
         </main>
@@ -2156,13 +2170,8 @@
 
             <div class="skills-grid">
                 <div class="skill-category">
-                    <div class="skill-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"
-                            fill="none" stroke="#2e1f8d" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
+                    <div class="skill-icon" style="color: #2e1f8d; font-size: 2.2rem;">
+                        <i class="fa-solid fa-code"></i>
                     </div>
                     <h3>Programming</h3>
                     <div class="tag-cloud">
@@ -2170,13 +2179,8 @@
                 </div>
 
                 <div class="skill-category">
-                    <div class="skill-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"
-                            fill="none" stroke="#2e1f8d" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
-                            <polyline points="16 7 22 7 22 13"></polyline>
-                        </svg>
+                    <div class="skill-icon" style="color: #2e1f8d; font-size: 2.2rem;">
+                        <i class="fa-solid fa-chart-line"></i>
                     </div>
                     <h3>Data Analytics</h3>
                     <div class="tag-cloud"><span>Data Cleaning</span><span>Preprocessing</span><span>EDA</span><span>KPI
@@ -2184,13 +2188,8 @@
                 </div>
 
                 <div class="skill-category">
-                    <div class="skill-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"
-                            fill="none" stroke="#2e1f8d" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
-                            <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
-                        </svg>
+                    <div class="skill-icon" style="color: #2e1f8d; font-size: 2.2rem;">
+                        <i class="fa-solid fa-chart-pie"></i>
                     </div>
                     <h3>Visualization</h3>
                     <div class="tag-cloud"><span>Power BI</span><span>Tableau</span><span>Advanced
@@ -2198,16 +2197,8 @@
                 </div>
 
                 <div class="skill-category">
-                    <div class="skill-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"
-                            fill="none" stroke="#2e1f8d" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="18" cy="5" r="3"></circle>
-                            <circle cx="6" cy="12" r="3"></circle>
-                            <circle cx="18" cy="19" r="3"></circle>
-                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-                            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-                        </svg>
+                    <div class="skill-icon" style="color: #2e1f8d; font-size: 2.2rem;">
+                        <i class="fa-solid fa-robot"></i>
                     </div>
                     <h3>Machine Learning</h3>
                     <div class="tag-cloud"><span>Scikit-learn</span><span>Predictive Analytics</span><span>Deep
@@ -2215,30 +2206,16 @@
                 </div>
 
                 <div class="skill-category">
-                    <div class="skill-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"
-                            fill="none" stroke="#2e1f8d" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                        </svg>
+                    <div class="skill-icon" style="color: #2e1f8d; font-size: 2.2rem;">
+                        <i class="fa-solid fa-database"></i>
                     </div>
                     <h3>Databases</h3>
                     <div class="tag-cloud"><span>MySQL</span><span>Data Modeling</span><span>Querying</span></div>
                 </div>
 
                 <div class="skill-category">
-                    <div class="skill-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"
-                            fill="none" stroke="#2e1f8d" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M9 21h6"></path>
-                            <path d="M10 21v-4"></path>
-                            <path d="M14 21v-4"></path>
-                            <path d="M12 17A6 6 0 1 0 6 11c0 2 1.5 4 1.5 6"></path>
-                            <path d="M12 2v2"></path>
-                        </svg>
+                    <div class="skill-icon" style="color: #2e1f8d; font-size: 2.2rem;">
+                        <i class="fa-solid fa-lightbulb"></i>
                     </div>
                     <h3>Soft Skills</h3>
                     <div class="tag-cloud"><span>Problem
@@ -2277,7 +2254,7 @@
                     <div class="cert-action-row">
                         <a href="#modal-cert2" class="btn-cert btn-cert-primary">Open Certificate</a>
                         <a href="https://www.linkedin.com/learning/certificates/4a10ccfbd62c716216386c315cd458d0ee6b58fd4f9fa94d1b0e537541c548cf"
-                            target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
+                            target="_blank" rel="noopener noreferrer" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
                 <div class="cert-card-box">
@@ -2287,7 +2264,7 @@
                     <div class="cert-action-row">
                         <a href="#modal-cert3" class="btn-cert btn-cert-primary">Open Certificate</a>
                         <a href="https://www.linkedin.com/learning/certificates/c2098ec1ad5864a26a7c47ab4c5efd9d5bedf55eb3b871fd59f0de2a39160f65"
-                            target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
+                            target="_blank" rel="noopener noreferrer" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
                 <div class="cert-card-box">
@@ -2297,7 +2274,7 @@
                     <div class="cert-action-row">
                         <a href="#modal-cert4" class="btn-cert btn-cert-primary">Open Certificate</a>
                         <a href="https://www.linkedin.com/learning/certificates/243fdb5fac370157ae7277dfa3b63c6f9833645f3c98c54d06f983a45d4f34eb"
-                            target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
+                            target="_blank" rel="noopener noreferrer" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
                 <div class="cert-card-box">
@@ -2307,7 +2284,7 @@
                     <div class="cert-action-row">
                         <a href="#modal-cert5" class="btn-cert btn-cert-primary">Open Certificate</a>
                         <a href="https://www.linkedin.com/learning/certificates/3a7902ef1ba316a75a5b5094949978a451f08f7d539dd6df1257a1b474036f2f?trk=share_certificate"
-                            target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
+                            target="_blank" rel="noopener noreferrer" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
                 <div class="cert-card-box">
@@ -2317,7 +2294,7 @@
                     <div class="cert-action-row">
                         <a href="#modal-cert6" class="btn-cert btn-cert-primary">Open Certificate</a>
                         <a href="https://www.linkedin.com/learning/certificates/476ab06f7ea1da43eb4c84277e13c7b294311aab9143f4f197efbbaad5030e95"
-                            target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
+                            target="_blank" rel="noopener noreferrer" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
             </div>
@@ -2340,13 +2317,7 @@
                     <div class="contact-info-list">
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                    </path>
-                                    <polyline points="22,6 12,13 2,6"></polyline>
-                                </svg>
+                                <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div class="contact-info-text">
                                 <span>Email</span>
@@ -2355,12 +2326,7 @@
                         </div>
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.79 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                                    </path>
-                                </svg>
+                                <i class="fa-solid fa-phone"></i>
                             </div>
                             <div class="contact-info-text">
                                 <span>Phone</span>
@@ -2369,11 +2335,7 @@
                         </div>
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                    <circle cx="12" cy="10" r="3"></circle>
-                                </svg>
+                                <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div class="contact-info-text">
                                 <span>Location</span>
@@ -2382,14 +2344,7 @@
                         </div>
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4V9a6 6 0 0 1 6-6z">
-                                    </path>
-                                    <rect x="2" y="9" width="4" height="12"></rect>
-                                    <circle cx="4" cy="4" r="2"></circle>
-                                </svg>
+                                <i class="fa-brands fa-linkedin-in"></i>
                             </div>
                             <div class="contact-info-text">
                                 <span>LinkedIn</span>
@@ -2399,11 +2354,7 @@
                         </div>
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
-                                <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor">
-                                    <path
-                                        d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82A7.48 7.48 0 0 0 8 2.93c-.68.004-1.36.09-2 .26-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.495 0 0 1 0 8c0-4.42 3.58-8 8-8Z">
-                                    </path>
-                                </svg>
+                                <i class="fa-brands fa-github"></i>
                             </div>
                             <div class="contact-info-text">
                                 <span>GitHub</span>
@@ -2599,7 +2550,6 @@
         const sections = document.querySelectorAll('main, section, #contact');
         const navLinks = document.querySelectorAll('.nav-links a');
 
-        /* Mobile layout drawer menu link tracking panel */
         const menuBtn = document.getElementById('menu-toggle-btn');
         const slideMenu = document.getElementById('sliding-nav-menu');
 
@@ -2620,7 +2570,6 @@
             }
         });
 
-        /* Intercept form submissions using fetch API to prevent page reloading */
         const contactForm = document.getElementById('portfolio-form');
         const statusBox = document.getElementById('form-success-msg');
         const submitBtn = document.getElementById('form-submit-btn');
@@ -2652,7 +2601,6 @@
             }
         });
 
-        /* Dynamic Popup Scroll Resetter script */
         window.addEventListener('hashchange', () => {
             if (window.location.hash) {
                 const targetOverlay = document.querySelector(window.location.hash);
