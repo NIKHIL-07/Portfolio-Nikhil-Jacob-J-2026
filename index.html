@@ -255,7 +255,7 @@
             border-radius: 25px;
         }
 
-        /* Mobile Notice Banner styling */
+        /* Mobile Notice Banner */
         .mobile-notice-ribbon {
             display: none;
             width: 100%;
@@ -369,6 +369,7 @@
             box-shadow: 0 10px 20px rgba(255, 193, 59, 0.3);
         }
 
+        /* PC LAYOUT: Retained standard floating badges overlay matrix map layout */
         .hero-right {
             position: relative;
             width: 420px;
@@ -403,19 +404,8 @@
             z-index: 0;
         }
 
-        .hero-right-badges-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 20;
-        }
-
         .glass-badge {
             position: absolute;
-            pointer-events: auto;
             background: rgba(0, 0, 0, 0.35);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -426,6 +416,7 @@
             font-size: 0.9rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             color: #fff;
+            z-index: 20;
             animation: floatBadge 6s infinite ease-in-out;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -456,6 +447,11 @@
             bottom: 100px;
             right: -30px;
             animation-delay: 3s;
+        }
+
+        /* Hidden row segment used to anchor badges cleanly on phone widths */
+        .hero-right-badges-container {
+            display: none;
         }
 
         @keyframes morphBlob {
@@ -1124,7 +1120,7 @@
             font-weight: 600;
         }
 
-        /* ================= SKILLS SECTION (2 ROWS x 3 COLUMNS EACH) ================= */
+        /* ================= SKILLS SECTION ================= */
         .skills-section {
             padding: 100px 0;
             background-color: #ffffff !important;
@@ -1288,7 +1284,7 @@
             background-color: rgba(23, 13, 88, 0.05) !important;
         }
 
-        /* ================= THEME INTEGRATED CONTACT SECTION ================= */
+        /* ================= CONTACT SECTION ================= */
         .contact-section {
             padding: 120px 0;
             background-color: #2e1f8d !important;
@@ -1572,7 +1568,7 @@
         }
 
         /* ==========================================================================
-           CORE RESPONSIVE STABILIZATION MEDIA LAYER 
+           CORE MOBILE STABILIZATION LAYER (MAX-WIDTH: 992PX)
            ========================================================================== */
         @media (max-width: 992px) {
             .container {
@@ -1583,17 +1579,17 @@
                 padding: 20px 0;
             }
 
-            /* Stops layout screen flickering loops on mobile devices */
+            /* 1. Remove background chart loops completely to stop flickering/blue screen on phone */
             .bg-graphics {
-                position: absolute !important;
-                height: 100% !important;
-                min-height: 100% !important;
-                transform: translateZ(0);
-                will-change: transform;
+                display: none !important;
             }
 
             .bg-chart {
                 display: none !important;
+            }
+
+            body {
+                background: #2e1f8d !important;
             }
 
             .mobile-menu-trigger {
@@ -1643,12 +1639,12 @@
                 display: block;
             }
 
-            /* Formats columns cleanly on vertical layout monitors */
+            /* 2. Format columns cleanly into a static layout grid */
             .hero {
                 flex-direction: column-reverse !important;
                 text-align: center !important;
                 justify-content: center !important;
-                gap: 40px !important;
+                gap: 30px !important;
                 padding-top: 130px !important;
                 padding-bottom: 40px !important;
                 height: auto !important;
@@ -1682,7 +1678,7 @@
                 margin-top: 10px;
             }
 
-            /* Flattens the circular layout and kills overlap errors across badges */
+            /* 3. Turn off blob animations to improve load time and touch stability */
             .hero-right {
                 margin: 0 auto !important;
                 width: 300px !important;
@@ -1701,7 +1697,12 @@
                 z-index: 10 !important;
             }
 
-            /* Re-maps floating badges into standard content boxes stacked cleanly under image asset */
+            /* Hide the absolute tags inside the profile widget wrapper */
+            .hero-right .glass-badge {
+                display: none !important;
+            }
+
+            /* 4. Display the badges stacked cleanly underneath the profile image widget layout */
             .hero-right-badges-container {
                 position: relative !important;
                 display: flex !important;
@@ -1713,6 +1714,8 @@
                 height: auto !important;
                 top: auto !important;
                 left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
             }
 
             .glass-badge {
@@ -1731,6 +1734,7 @@
                 background: rgba(23, 13, 88, 0.9) !important;
                 border: 1px solid rgba(255, 193, 59, 0.4) !important;
                 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+                z-index: 50 !important;
             }
 
             .about-top-row {
@@ -1902,8 +1906,11 @@
                 </div>
             </div>
 
-            <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
                 <div class="hero-right">
+                    <div class="glass-badge badge-1">📊 Data Analyst</div>
+                    <div class="glass-badge badge-2">📈 Power BI Expert</div>
+                    <div class="glass-badge badge-3">🤖 Data Scientist</div>
                     <div class="illustration-placeholder">
                         <img src="Gemini_Generated_Image_1ys2u01ys2u01ys2-Photoroom.png" alt="Nikhil Illustration"
                             class="profile-img">
@@ -1911,9 +1918,9 @@
                 </div>
 
                 <div class="hero-right-badges-container">
-                    <div class="glass-badge badge-1">📊 Data Analyst</div>
-                    <div class="glass-badge badge-2">📈 Power BI Expert</div>
-                    <div class="glass-badge badge-3">🤖 Data Scientist</div>
+                    <div class="glass-badge">📊 Data Analyst</div>
+                    <div class="glass-badge">📈 Power BI Expert</div>
+                    <div class="glass-badge">🤖 Data Scientist</div>
                 </div>
             </div>
         </main>
@@ -2316,51 +2323,32 @@
                 <div class="contact-card-gradient">
                     <div class="contact-info-list">
                         <div class="contact-info-item">
-                            <div class="contact-icon-frame">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div class="contact-info-text">
-                                <span>Email</span>
-                                <a href="mailto:nikhiljacobj@gmail.com">nikhiljacobj@gmail.com</a>
-                            </div>
+                            <div class="contact-icon-frame"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="contact-info-text"><span>Email</span><a
+                                    href="mailto:nikhiljacobj@gmail.com">nikhiljacobj@gmail.com</a></div>
                         </div>
                         <div class="contact-info-item">
-                            <div class="contact-icon-frame">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div class="contact-info-text">
-                                <span>Phone</span>
+                            <div class="contact-icon-frame"><i class="fa-solid fa-phone"></i></div>
+                            <div class="contact-info-text"><span>Phone</span>
                                 <p>+91 89219 85735</p>
                             </div>
                         </div>
                         <div class="contact-info-item">
-                            <div class="contact-icon-frame">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div class="contact-info-text">
-                                <span>Location</span>
+                            <div class="contact-icon-frame"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="contact-info-text"><span>Location</span>
                                 <p>Kerala, India</p>
                             </div>
                         </div>
                         <div class="contact-info-item">
-                            <div class="contact-icon-frame">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </div>
-                            <div class="contact-info-text">
-                                <span>LinkedIn</span>
-                                <a href="https://linkedin.com/in/nikhil-jacob-j/" target="_blank"
-                                    rel="noopener noreferrer">linkedin.com/in/nikhil-jacob-j/</a>
-                            </div>
+                            <div class="contact-icon-frame"><i class="fa-brands fa-linkedin-in"></i></div>
+                            <div class="contact-info-text"><span>LinkedIn</span><a
+                                    href="https://linkedin.com/in/nikhil-jacob-j/" target="_blank"
+                                    rel="noopener noreferrer">linkedin.com/in/nikhil-jacob-j/</a></div>
                         </div>
                         <div class="contact-info-item">
-                            <div class="contact-icon-frame">
-                                <i class="fa-brands fa-github"></i>
-                            </div>
-                            <div class="contact-info-text">
-                                <span>GitHub</span>
-                                <a href="https://github.com/NIKHIL-07" target="_blank"
-                                    rel="noopener noreferrer">github.com/NIKHIL-07</a>
-                            </div>
+                            <div class="contact-icon-frame"><i class="fa-brands fa-github"></i></div>
+                            <div class="contact-info-text"><span>GitHub</span><a href="https://github.com/NIKHIL-07"
+                                    target="_blank" rel="noopener noreferrer">github.com/NIKHIL-07</a></div>
                         </div>
                     </div>
                     <a href="NIKHIL JACOB J DATA ANALYST.pdf" target="_blank" class="btn btn-secondary"
