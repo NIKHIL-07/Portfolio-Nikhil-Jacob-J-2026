@@ -5,13 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
-    
-    <!-- LINK PREVIEW METADATA -->
-<meta property="og:title" content="Nikhil Jacob J. | Portfolio">
-<meta property="og:description" content="Data Analyst & Data Scientist Portfolio site.">
-<meta property="og:image" content="https://nikhil-07.github.io/Portfolio-Nikhil-Jacob-J-2026/Linkedin_Preview.png">
-    
     <title>Nikhil Jacob J. | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <style>
         /* ================= BASE RESET & ANTI-INVERSION SYSTEM ================= */
@@ -996,19 +992,19 @@
         }
 
         /* Pro-Tip project banner text */
-/* ================= FIX: REMOVE NEGATIVE MARGIN OVERLAP ================= */
-.project-row-hint { 
-    text-align: center; 
-    font-size: 0.85rem; 
-    color: #2e1f8d !important; 
-    font-weight: 600; 
-    background: #fff8eb !important; 
-    display: inline-block; 
-    padding: 8px 20px; 
-    border-radius: 20px; 
-    margin: 20px auto 10px auto; /* Changed from negative top margin to clean positive spacing */
-    border: 1px solid rgba(255, 193, 59, 0.3); 
-}
+        .project-row-hint {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #2e1f8d !important;
+            font-weight: 600;
+            background: #fff8eb !important;
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin: -20px auto 40px auto;
+            border: 1px solid rgba(255, 193, 59, 0.3);
+        }
+
         /* ================= EXPERIENCE SECTION ================= */
         .experience-section {
             padding: 100px 0;
@@ -1735,6 +1731,73 @@
                 height: 260px;
             }
         }
+
+        /* ==========================================================================
+   EXCLUSIVE MOBILE PERFORMANCE LAYER (DOES NOT TOUCH PC LAYOUT)
+   ========================================================================== */
+        @media (max-width: 992px) {
+
+            /* 1. Kills mobile layout redraw loops to stop the flickering & blue flashes */
+            .bg-graphics {
+                position: absolute !important;
+                height: 100% !important;
+                min-height: 100% !important;
+                transform: translateZ(0);
+                /* Forces GPU hardware acceleration for liquid smooth scrolling */
+                will-change: transform;
+            }
+
+            /* 2. Disables heavy SVG floating animation paths exclusively on phone screens to eliminate scroll lag */
+            .bg-chart {
+                display: none !important;
+            }
+
+            /* 3. Stabilizes the primary hero landing viewport context */
+            .hero {
+                min-height: auto !important;
+                height: auto !important;
+                padding-top: 140px !important;
+                padding-bottom: 60px !important;
+            }
+
+            /* 4. Keeps the profile illustration stable and correctly formatted within bounds */
+            .hero-right {
+                width: 280px !important;
+                height: 280px !important;
+                margin: 0 auto !important;
+                animation: none !important;
+                /* Stops complex frame reshaping redraw loops on mobile */
+                border-radius: 50% !important;
+                /* Locks into a clean static circular layout map */
+            }
+
+            .profile-img {
+                transform: scale(1.6) !important;
+                /* Prevents overflow cropping on touch display viewports */
+            }
+
+            /* 5. Prevents overlapping layout breaks across floating profile tags */
+            .glass-badge {
+                position: relative !important;
+                display: inline-block !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                margin: 8px 5px !important;
+                transform: none !important;
+                animation: none !important;
+            }
+
+            /* Re-wraps floating labels safely below the main graphic map */
+            .hero-right-badges-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 20px;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -1863,11 +1926,12 @@
                     </div>
                 </div>
             </div>
-
             <div class="hero-right">
-                <div class="glass-badge badge-1">📊 Data Analyst</div>
-                <div class="glass-badge badge-2">📈 Power BI Expert</div>
-                <div class="glass-badge badge-3">🤖 Data Scientist</div>
+                <div class="hero-right-badges-container">
+                    <div class="glass-badge badge-1">📊 Data Analyst</div>
+                    <div class="glass-badge badge-2">📈 Power BI Expert</div>
+                    <div class="glass-badge badge-3">🤖 Data Scientist</div>
+                </div>
                 <div class="illustration-placeholder">
                     <img src="Gemini_Generated_Image_1ys2u01ys2u01ys2-Photoroom.png" alt="Nikhil Illustration"
                         class="profile-img">
@@ -2137,7 +2201,8 @@
                     </div>
                     <h3>Programming</h3>
                     <div class="tag-cloud">
-                        <span>Python</span><span>SQL</span><span>C</span><span>R</span><span>Verilog</span></div>
+                        <span>Python</span><span>SQL</span><span>C</span><span>R</span><span>Verilog</span>
+                    </div>
                 </div>
 
                 <div class="skill-category">
