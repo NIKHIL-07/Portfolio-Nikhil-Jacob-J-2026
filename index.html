@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- STRICT THEME DEFENSE: Forces mobile phone color inverters to respect our native dark theme -->
+    <meta name="color-scheme" content="dark">
     <title>Nikhil Jacob J. | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -17,9 +19,15 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        /* Forces mobile browser forced dark-modes to leave our hex definitions completely untouched */
+        :root {
+            color-scheme: dark;
+            supported-color-schemes: dark;
+        }
+
         body {
-            background-color: #2e1f8d;
-            color: #ffffff;
+            background-color: #2e1f8d !important;
+            color: #ffffff !important;
             overflow-x: hidden;
             position: relative;
         }
@@ -129,7 +137,7 @@
         }
 
         .site-header.scrolled {
-            background-color: rgba(23, 13, 88, 0.75);
+            background-color: rgba(23, 13, 88, 0.9) !important;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -152,6 +160,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            z-index: 1010;
         }
 
         .logo-icon {
@@ -166,17 +175,25 @@
         .logo-text {
             font-size: 1.5rem;
             font-weight: 700;
+            color: #ffffff !important;
+        }
+
+        .nav-right-block {
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             gap: 30px;
+            align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #ffffff;
+            color: #ffffff !important;
             font-weight: 500;
             opacity: 0.8;
             transition: 0.3s;
@@ -184,8 +201,19 @@
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: #ffc13b;
+            color: #ffc13b !important;
             opacity: 1;
+        }
+
+        /* Mobile Menu Hamburger Trigger */
+        .mobile-menu-trigger {
+            display: none;
+            background: transparent;
+            border: none;
+            color: #ffffff !important;
+            cursor: pointer;
+            z-index: 1010;
+            padding: 5px;
         }
 
         /* Buttons */
@@ -200,14 +228,14 @@
         }
 
         .btn-contact {
-            background-color: #ffc13b;
-            color: #333;
+            background-color: #ffc13b !important;
+            color: #170d58 !important;
             box-shadow: 0 0 20px rgba(255, 193, 59, 0.4);
         }
 
         .btn-primary {
-            background-color: #ffc13b;
-            color: #333;
+            background-color: #ffc13b !important;
+            color: #170d58 !important;
             box-shadow: 0 0 20px rgba(255, 193, 59, 0.4);
         }
 
@@ -218,13 +246,13 @@
         }
 
         .btn-secondary {
-            background-color: transparent;
-            color: #ffffff;
-            border: 2px solid #ffffff;
+            background-color: transparent !important;
+            color: #ffffff !important;
+            border: 2px solid #ffffff !important;
         }
 
         .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1) !important;
         }
 
         .btn-sm {
@@ -293,9 +321,9 @@
         .hero-social-icon {
             width: 44px;
             height: 44px;
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.12) !important;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #ffffff;
+            color: #ffffff !important;
             border-radius: 50%;
             transition: all 0.3s ease;
             display: flex;
@@ -304,8 +332,8 @@
         }
 
         .hero-social-icon:hover {
-            color: #170d58;
-            background: #ffc13b;
+            color: #170d58 !important;
+            background: #ffc13b !important;
             border-color: #ffc13b;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(255, 193, 59, 0.3);
@@ -316,7 +344,7 @@
             width: 420px;
             height: 420px;
             margin-left: 40px;
-            background-color: #ffc13b;
+            background-color: #ffc13b !important;
             background-image: radial-gradient(circle, #ffc13b 50%, transparent 55%);
             background-size: cover;
             background-position: center;
@@ -390,43 +418,10 @@
             animation-delay: 3s;
         }
 
-        /* ================= ANIMATION KEYFRAMES ================= */
-        @keyframes morphBlob {
-
-            0%,
-            100% {
-                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            }
-
-            25% {
-                border-radius: 45% 55% 50% 50% / 55% 45% 55% 45%;
-            }
-
-            50% {
-                border-radius: 30% 70% 45% 55% / 65% 35% 65% 35%;
-            }
-
-            75% {
-                border-radius: 55% 45% 60% 40% / 45% 55% 40% 60%;
-            }
-        }
-
-        @keyframes floatBadge {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
         /* ================= LIGHT SECTIONS (ABOUT, PROJECTS, CERTS) ================= */
         .light-section {
-            background-color: #ffffff;
-            color: #333333;
+            background-color: #ffffff !important;
+            color: #333333 !important;
             padding: 120px 0 80px 0;
             position: relative;
             z-index: 20;
@@ -547,7 +542,7 @@
         }
 
         .sub-heading {
-            color: #2e1f8d;
+            color: #2e1f8d !important;
             font-weight: 800;
             font-size: 1.1rem;
             letter-spacing: 3px;
@@ -558,7 +553,7 @@
 
         .about-text-column h2 {
             font-size: 2.2rem;
-            color: #170d58;
+            color: #170d58 !important;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 20px;
@@ -566,13 +561,13 @@
 
         .about-text-column p {
             font-size: 1rem;
-            color: #555555;
+            color: #555555 !important;
             line-height: 1.7;
             margin-bottom: 15px;
         }
 
         .about-text-column strong {
-            color: #170d58;
+            color: #170d58 !important;
             font-weight: 700;
         }
 
@@ -594,19 +589,27 @@
         }
 
         .edu-card {
-            background: #ffffff;
+            background: #ffffff !important;
             border: 1px solid rgba(46, 31, 141, 0.08);
         }
 
         .edu-focus-card {
-            background: #fff8eb;
-            border-left: 6px solid #ffc13b;
+            background: #fff8eb !important;
+            border-left: 6px solid #ffc13b !important;
             border-top: 1px solid rgba(46, 31, 141, 0.05);
             border-right: 1px solid rgba(46, 31, 141, 0.05);
             border-bottom: 1px solid rgba(46, 31, 141, 0.05);
             display: flex;
             flex-direction: column;
             justify-content: center;
+        }
+
+        .edu-card h3 {
+            color: #170d58 !important;
+        }
+
+        .edu-card p {
+            color: #555555 !important;
         }
 
         .edu-card:hover,
@@ -652,8 +655,8 @@
         .badge {
             flex: 1;
             text-align: center;
-            background: #170d58;
-            color: #ffffff;
+            background: #170d58 !important;
+            color: #ffffff !important;
             font-size: 0.8rem;
             padding: 10px 5px;
             border-radius: 6px;
@@ -661,7 +664,7 @@
         }
 
         .edu-focus-card h4 {
-            color: #170d58;
+            color: #170d58 !important;
             font-size: 1.3rem;
             margin-bottom: 20px;
             font-weight: 700;
@@ -679,7 +682,7 @@
             position: relative;
             padding-left: 15px;
             font-size: 0.9rem;
-            color: #444;
+            color: #444444 !important;
             line-height: 1.4;
         }
 
@@ -688,7 +691,7 @@
             position: absolute;
             left: 0;
             top: -2px;
-            color: #ffc13b;
+            color: #ffc13b !important;
             font-size: 1.3rem;
             font-weight: bold;
         }
@@ -707,8 +710,8 @@
         }
 
         .about-skill-tags span {
-            background-color: #f9fbfd;
-            color: #2e1f8d;
+            background-color: #f9fbfd !important;
+            color: #2e1f8d !important;
             padding: 10px 20px;
             border-radius: 30px;
             font-size: 0.9rem;
@@ -719,8 +722,8 @@
         }
 
         .about-skill-tags span:hover {
-            background-color: #ffc13b;
-            color: #170d58;
+            background-color: #ffc13b !important;
+            color: #170d58 !important;
             border-color: #ffc13b;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(255, 193, 59, 0.3);
@@ -729,7 +732,7 @@
         /* ================= PROJECTS SECTION ================= */
         .projects-section {
             padding: 120px 0 80px 0;
-            background-color: #f9fbfd;
+            background-color: #f9fbfd !important;
             position: relative;
             overflow: hidden;
         }
@@ -759,7 +762,7 @@
         }
 
         .project-card {
-            background: #ffffff;
+            background: #ffffff !important;
             border: 1px solid rgba(46, 31, 141, 0.08);
             border-radius: 15px;
             overflow: hidden;
@@ -827,18 +830,18 @@
             display: flex;
             flex-direction: column;
             flex: 1;
-            color: #555555;
+            color: #555555 !important;
         }
 
         .project-category {
             font-size: 0.75rem;
             font-weight: 700;
-            color: #220338;
+            color: #220338 !important;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 12px;
             display: inline-block;
-            background: #f2eee6;
+            background: #f2eee6 !important;
             padding: 4px 12px;
             border-radius: 20px;
             align-self: flex-start;
@@ -852,7 +855,7 @@
         }
 
         .project-content h3 {
-            color: #170d58;
+            color: #170d58 !important;
             font-size: 1.3rem;
             margin-bottom: 12px;
             line-height: 1.3;
@@ -860,7 +863,7 @@
         }
 
         .project-content p {
-            color: #555555;
+            color: #555555 !important;
             font-size: 0.92rem;
             line-height: 1.6;
             margin-bottom: 25px;
@@ -876,7 +879,7 @@
         }
 
         .metric-box {
-            background: #ffc13b;
+            background: #ffc13b !important;
             border: 1px solid rgba(23, 13, 88, 0.1);
             border-radius: 8px;
             padding: 12px 4px;
@@ -890,7 +893,7 @@
         }
 
         .metric-box h4 {
-            color: #170d58;
+            color: #170d58 !important;
             font-size: 1.05rem;
             font-weight: 800;
             margin-bottom: 2px;
@@ -898,7 +901,7 @@
         }
 
         .metric-box p {
-            color: rgba(23, 13, 88, 0.7);
+            color: rgba(23, 13, 88, 0.7) !important;
             font-size: 0.62rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -919,8 +922,8 @@
         .project-tags span {
             flex-grow: 1;
             text-align: center;
-            background: #ffffff;
-            color: #2e1f8d;
+            background: #ffffff !important;
+            color: #2e1f8d !important;
             border: 1px solid #e0dcfc;
             padding: 5px 12px;
             border-radius: 20px;
@@ -943,21 +946,21 @@
             font-weight: 600;
             background: transparent;
             border: 1px solid #170d58;
-            color: #170d58;
+            color: #170d58 !important;
             transition: all 0.3s ease;
         }
 
         .project-links .btn-outline-dark:hover {
-            background: #170d58;
-            color: #ffffff;
+            background: #170d58 !important;
+            color: #ffffff !important;
         }
 
         .project-row-hint {
             text-align: center;
             font-size: 0.85rem;
-            color: #2e1f8d;
+            color: #2e1f8d !important;
             font-weight: 600;
-            background: #fff8eb;
+            background: #fff8eb !important;
             display: inline-block;
             padding: 6px 16px;
             border-radius: 20px;
@@ -968,7 +971,7 @@
         /* ================= EXPERIENCE SECTION ================= */
         .experience-section {
             padding: 100px 0;
-            background-color: #fcfcfc;
+            background-color: #fcfcfc !important;
             position: relative;
             overflow: hidden;
         }
@@ -990,7 +993,7 @@
         }
 
         .exp-card {
-            background: #ffffff;
+            background: #ffffff !important;
             border: 1px solid rgba(46, 31, 141, 0.08);
             border-radius: 15px;
             padding: 40px;
@@ -1000,6 +1003,19 @@
             margin-right: auto;
             transition: all 0.4s ease;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .exp-card h3 {
+            color: #170d58 !important;
+        }
+
+        .exp-card h4 {
+            color: #555555 !important;
+        }
+
+        .exp-card p,
+        .exp-card li {
+            color: #555555 !important;
         }
 
         .exp-card:hover {
@@ -1015,18 +1031,8 @@
             margin-bottom: 20px;
         }
 
-        .exp-header h3 {
-            color: #170d58;
-            font-size: 1.4rem;
-        }
-
-        .exp-header h4 {
-            color: #555;
-            font-size: 1.1rem;
-        }
-
         .exp-date {
-            color: #ffc13b;
+            color: #ffc13b !important;
             font-weight: 700;
             font-size: 0.9rem;
         }
@@ -1037,7 +1043,6 @@
         }
 
         .exp-list li {
-            color: #555;
             margin-bottom: 10px;
             padding-left: 20px;
             position: relative;
@@ -1045,7 +1050,7 @@
 
         .exp-list li::before {
             content: '›';
-            color: #ffc13b;
+            color: #ffc13b !important;
             position: absolute;
             left: 0;
             font-weight: bold;
@@ -1060,8 +1065,8 @@
         }
 
         .exp-tag {
-            background: #f3f0ff;
-            color: #2e1f8d;
+            background: #f3f0ff !important;
+            color: #2e1f8d !important;
             padding: 6px 15px;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -1071,7 +1076,7 @@
         /* ================= SKILLS SECTION ================= */
         .skills-section {
             padding: 100px 0;
-            background-color: #ffffff;
+            background-color: #ffffff !important;
             position: relative;
             overflow: hidden;
         }
@@ -1102,12 +1107,11 @@
 
         .section-header h2 {
             font-size: 2.2rem;
-            color: #170d58;
+            color: #170d58 !important;
             font-weight: 800;
             margin-bottom: 15px;
         }
 
-        /* OPTIMIZED: Responsive grids that collapse neatly on smaller viewports */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1116,7 +1120,7 @@
         }
 
         .skill-category {
-            background: #ffffff;
+            background: #ffffff !important;
             padding: 30px;
             border-radius: 15px;
             border: 1px solid rgba(46, 31, 141, 0.08);
@@ -1135,7 +1139,7 @@
         }
 
         .skill-category h3 {
-            color: #170d58;
+            color: #170d58 !important;
             margin-bottom: 10px;
             font-size: 1.25rem;
         }
@@ -1158,8 +1162,8 @@
         }
 
         .tag-cloud span {
-            background: #f3f0ff;
-            color: #2e1f8d;
+            background: #f3f0ff !important;
+            color: #2e1f8d !important;
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -1168,7 +1172,7 @@
 
         /* ================= CERTIFICATIONS SECTION ================= */
         .certifications-section {
-            background: #ffffff;
+            background: #ffffff !important;
             border-top: 1px solid #eaeaea;
             padding: 120px 0 80px 0;
             position: relative;
@@ -1183,7 +1187,7 @@
         }
 
         .cert-card-box {
-            background: #ffffff;
+            background: #ffffff !important;
             border: 1px solid rgba(46, 31, 141, 0.08);
             border-radius: 15px;
             padding: 30px;
@@ -1201,7 +1205,7 @@
         }
 
         .cert-title-area h3 {
-            color: #170d58;
+            color: #170d58 !important;
             font-size: 1.15rem;
             font-weight: 700;
             line-height: 1.4;
@@ -1227,32 +1231,32 @@
         }
 
         .btn-cert-primary {
-            background-color: #170d58;
-            color: #ffffff;
+            background-color: #170d58 !important;
+            color: #ffffff !important;
             border: 1px solid #170d58;
         }
 
         .btn-cert-primary:hover {
-            background-color: #ffc13b;
-            color: #170d58;
+            background-color: #ffc13b !important;
+            color: #170d58 !important;
             border-color: #ffc13b;
         }
 
         .btn-cert-secondary {
-            background-color: transparent;
-            color: #170d58;
+            background-color: transparent !important;
+            color: #170d58 !important;
             border: 1px solid #170d58;
         }
 
         .btn-cert-secondary:hover {
-            background-color: rgba(23, 13, 88, 0.05);
+            background-color: rgba(23, 13, 88, 0.05) !important;
         }
 
         /* ================= ORIGINAL THEME CONTACT FORM STYLING ================= */
         .contact-section {
             padding: 120px 0;
-            background-color: #2e1f8d;
-            color: #ffffff;
+            background-color: #2e1f8d !important;
+            color: #ffffff !important;
             position: relative;
             z-index: 20;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -1268,7 +1272,7 @@
 
         .contact-card-gradient,
         .contact-form-gradient {
-            background: #170d58;
+            background: #170d58 !important;
             border-radius: 24px;
             padding: 45px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
@@ -1295,13 +1299,13 @@
         .contact-icon-frame {
             width: 50px;
             height: 50px;
-            background: rgba(0, 242, 254, 0.1);
+            background: rgba(0, 242, 254, 0.1) !important;
             border: 1px solid rgba(0, 242, 254, 0.2);
             border-radius: 12px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #00f2fe;
+            color: #00f2fe !important;
             flex-shrink: 0;
         }
 
@@ -1313,26 +1317,27 @@
             display: block;
             font-weight: 700;
             margin-bottom: 2px;
+            color: #ffffff !important;
         }
 
         .contact-info-text p,
         .contact-info-text a {
             font-size: 1rem;
-            color: #ffffff;
+            color: #ffffff !important;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.2s;
         }
 
         .contact-info-text a:hover {
-            color: #ffc13b;
+            color: #ffc13b !important;
         }
 
         .form-title {
             font-size: 2.2rem;
             font-weight: 800;
             text-align: center;
-            color: #ffffff;
+            color: #ffffff !important;
             margin-bottom: 35px;
         }
 
@@ -1344,10 +1349,10 @@
         .input-control {
             width: 100%;
             padding: 16px 20px;
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.03) !important;
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 12px;
-            color: #ffffff;
+            color: #ffffff !important;
             font-size: 0.95rem;
             font-weight: 500;
             outline: none;
@@ -1355,12 +1360,12 @@
         }
 
         .input-control::placeholder {
-            color: rgba(255, 255, 255, 0.35);
+            color: rgba(255, 255, 255, 0.35) !important;
         }
 
         .input-control:focus {
             border-color: #ffc13b;
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.06) !important;
             box-shadow: 0 0 15px rgba(255, 193, 59, 0.2);
         }
 
@@ -1368,14 +1373,14 @@
             position: absolute;
             top: 12px;
             right: -8px;
-            color: #ffc13b;
+            color: #ffc13b !important;
             font-size: 1.1rem;
             font-weight: bold;
         }
 
         .btn-send {
-            background: #9d4edd;
-            color: #ffffff;
+            background: #9d4edd !important;
+            color: #ffffff !important;
             padding: 14px 35px;
             border-radius: 12px;
             font-weight: 600;
@@ -1390,8 +1395,8 @@
         }
 
         .btn-send:hover {
-            background: #ffc13b;
-            color: #170d58;
+            background: #ffc13b !important;
+            color: #170d58 !important;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 193, 59, 0.4);
         }
@@ -1399,11 +1404,11 @@
         .form-status-alert {
             font-size: 1rem;
             font-weight: 600;
-            color: #ffc13b;
+            color: #ffc13b !important;
             margin-top: 20px;
             text-align: center;
             display: none;
-            background: rgba(255, 193, 59, 0.1);
+            background: rgba(255, 193, 59, 0.1) !important;
             padding: 12px;
             border-radius: 8px;
             border: 1px solid rgba(255, 193, 59, 0.3);
@@ -1440,7 +1445,7 @@
             width: 90%;
             max-width: 1200px;
             max-height: 85vh;
-            background: #ffffff;
+            background: #ffffff !important;
             padding: 30px;
             border-radius: 16px;
             box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
@@ -1459,8 +1464,8 @@
             right: 20px;
             width: 44px;
             height: 44px;
-            background: #ffc13b;
-            color: #170d58;
+            background: #ffc13b !important;
+            color: #170d58 !important;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -1475,12 +1480,12 @@
 
         .modal-close:hover {
             transform: scale(1.1);
-            background: #170d58;
-            color: #ffffff;
+            background: #170d58 !important;
+            color: #ffffff !important;
         }
 
         .modal-gallery-title {
-            color: #170d58;
+            color: #170d58 !important;
             font-size: 1.6rem;
             font-weight: 800;
             margin-bottom: 5px;
@@ -1488,7 +1493,7 @@
         }
 
         .modal-gallery-subtitle {
-            color: #666666;
+            color: #666666 !important;
             font-size: 0.95rem;
             margin-bottom: 25px;
             text-align: left;
@@ -1555,23 +1560,62 @@
 
         /* ==========================================================================
            ================== MASTER MEDIA QUERIES FOR MOBILE MATRIX ================
-           ========================================================================= */
+           ========================================================================== */
 
         @media (max-width: 992px) {
             .container {
                 padding: 0 24px;
             }
 
-            /* Navbar adjustments */
             .navbar {
                 padding: 20px 0;
             }
 
-            .nav-links {
-                display: none;
+            /* RE-ENGINEERED NAVIGATION DRAWER FOR ACCESSIBLE RESPONSIVE SCREEN WRAPPING */
+            .mobile-menu-trigger {
+                display: block;
             }
 
-            /* Hero single-column optimization packing */
+            .nav-right-block {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background-color: #170d58 !important;
+                padding: 100px 30px;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 40px;
+                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
+                transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+                z-index: 1005;
+            }
+
+            .nav-right-block.active {
+                right: 0;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+                width: 100%;
+            }
+
+            .nav-links a {
+                font-size: 1.15rem;
+                width: 100%;
+                display: block;
+            }
+
+            .nav-right-block .btn-contact {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            /* Hero adjustments */
             .hero {
                 flex-direction: column-reverse;
                 text-align: center;
@@ -1637,7 +1681,7 @@
                 right: -20px;
             }
 
-            /* About structural grid collapse */
+            /* Content Section Adjustments */
             .about-top-row {
                 flex-direction: column;
                 gap: 40px;
@@ -1662,7 +1706,6 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Symmetrical Contact box breaks into single row columns */
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1690,7 +1733,7 @@
 
             .hero-right {
                 width: 260px;
-                height: 300px;
+                height: 260px;
             }
 
             .projects-grid,
@@ -1723,15 +1766,28 @@
                     <span class="logo-icon">NJ</span>
                     <span class="logo-text">Nikhil.</span>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                </ul>
-                <a href="#contact" class="btn btn-contact">Contact</a>
+
+                <!-- Hamburguer SVG Trigger Icon (Toggles slide menu state) -->
+                <button class="mobile-menu-trigger" id="menu-toggle-btn" aria-label="Toggle Navigation Panel Menu">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+
+                <div class="nav-right-block" id="sliding-nav-panel">
+                    <ul class="nav-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#certifications">Certifications</a></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-contact">Contact</a>
+                </div>
             </nav>
         </div>
     </header>
@@ -1816,7 +1872,7 @@
                             title="GitHub Profile">
                             <svg height="20" width="22" viewBox="0 0 16 16" fill="currentColor">
                                 <path
-                                    d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82A7.48 7.48 0 0 0 8 2.93c-.68.004-1.36.09-2 .26-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.495 0 0 1 0 8c0-4.42 3.58;8 8-8Z">
+                                    d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82A7.48 7.48 0 0 0 8 2.93c-.68.004-1.36.09-2 .26-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.495 0 0 1 0 8c0-4.42 3.58-8 8-8Z">
                                 </path>
                             </svg>
                         </a>
@@ -1836,6 +1892,7 @@
         </main>
     </div>
 
+    <!-- ================= ABOUT SECTION ================= -->
     <section id="about" class="light-section">
         <div class="container">
             <div class="about-top-row">
@@ -1908,6 +1965,7 @@
         </div>
     </section>
 
+    <!-- ================= PROJECTS SECTION ================= -->
     <section id="projects" class="projects-section">
         <div class="container">
             <div class="section-header">
@@ -1920,6 +1978,7 @@
             </div>
 
             <div class="projects-grid">
+                <!-- Project 1 -->
                 <div class="project-card">
                     <a href="#modal-p1" class="project-img">
                         <img src="Executive Dashboard.png" alt="Retail Sales Analysis & Dashboard">
@@ -1955,6 +2014,7 @@
                     </div>
                 </div>
 
+                <!-- Project 2 -->
                 <div class="project-card">
                     <a href="#modal-p2" class="project-img">
                         <img src="EA Cover image.png" alt="Employee Attrition Prediction Case Study">
@@ -1989,6 +2049,7 @@
                     </div>
                 </div>
 
+                <!-- Project 3 -->
                 <div class="project-card">
                     <a href="#modal-p3" class="project-img">
                         <img src="Blinkit Dashboard Image.png" alt="Blinkit Analysis Dashboard">
@@ -2027,6 +2088,7 @@
         </div>
     </section>
 
+    <!-- ================= EXPERIENCE SECTION ================= -->
     <section id="experience" class="experience-section">
         <div class="container">
             <span class="sub-heading">EXPERIENCE</span>
@@ -2073,6 +2135,7 @@
         </div>
     </section>
 
+    <!-- ================= SKILLS SECTION ================= -->
     <section id="skills" class="skills-section">
         <div class="container">
             <div class="section-header">
@@ -2176,6 +2239,7 @@
         </div>
     </section>
 
+    <!-- ================= CERTIFICATIONS SECTION ================= -->
     <section id="certifications" class="light-section"
         style="background-color: #ffffff; border-top: 1px solid #eaeaea;">
         <div class="container">
@@ -2186,6 +2250,7 @@
             </div>
 
             <div class="certs-grid">
+                <!-- Cert 1 -->
                 <div class="cert-card-box">
                     <div class="cert-title-area">
                         <h3>Google Data Analytics Professional</h3>
@@ -2197,6 +2262,7 @@
                             class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
+                <!-- Cert 2 -->
                 <div class="cert-card-box">
                     <div class="cert-title-area">
                         <h3>Introduction to Data Science</h3>
@@ -2207,6 +2273,7 @@
                             target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
+                <!-- Cert 3 -->
                 <div class="cert-card-box">
                     <div class="cert-title-area">
                         <h3>How to Use Data Visualization to Make Better Decisions—Faster</h3>
@@ -2217,6 +2284,7 @@
                             target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
+                <!-- Cert 4 -->
                 <div class="cert-card-box">
                     <div class="cert-title-area">
                         <h3>Data Visualization for Data Analysts and Analytics</h3>
@@ -2227,6 +2295,7 @@
                             target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
+                <!-- Cert 5 -->
                 <div class="cert-card-box">
                     <div class="cert-title-area">
                         <h3>Learning SQL Programming</h3>
@@ -2237,6 +2306,7 @@
                             target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
+                <!-- Cert 6 -->
                 <div class="cert-card-box">
                     <div class="cert-title-area">
                         <h3>Quality Management Foundations</h3>
@@ -2251,6 +2321,7 @@
         </div>
     </section>
 
+    <!-- ================= THEME INTEGRATED CONTACT SECTION ================= -->
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header" style="text-align: left; align-items: flex-start; margin-bottom: 50px;">
@@ -2262,8 +2333,10 @@
             </div>
 
             <div class="contact-grid">
+                <!-- Info Column Wrapper -->
                 <div class="contact-card-gradient">
                     <div class="contact-info-list">
+                        <!-- Email -->
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2279,6 +2352,7 @@
                                 <a href="mailto:nikhiljacobj@gmail.com">nikhiljacobj@gmail.com</a>
                             </div>
                         </div>
+                        <!-- Phone -->
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2293,6 +2367,7 @@
                                 <p>+91 89219 85735</p>
                             </div>
                         </div>
+                        <!-- Location -->
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2306,6 +2381,7 @@
                                 <p>Kerala, India</p>
                             </div>
                         </div>
+                        <!-- Linkedin -->
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2323,6 +2399,7 @@
                                     target="_blank">linkedin.com/in/nikhil-jacob-j/</a>
                             </div>
                         </div>
+                        <!-- Github -->
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
                                 <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor">
@@ -2348,6 +2425,7 @@
                     </a>
                 </div>
 
+                <!-- Web Form Column Wrapper -->
                 <div class="contact-form-gradient">
                     <h3 class="form-title">Contact Form</h3>
                     <form id="portfolio-form" action="https://formspree.io/f/maqgbgol" method="POST">
@@ -2383,6 +2461,9 @@
         </div>
     </section>
 
+    <!-- ================= LIGHTBOX OVERLAY GALLERY WINDOWS ================= -->
+
+    <!-- Project 1 Gallery Overlay -->
     <div id="modal-p1" class="modal-overlay">
         <a href="#projects" class="modal-close">&times;</a>
         <div class="modal-wrapper">
@@ -2413,6 +2494,7 @@
         </div>
     </div>
 
+    <!-- Nested Project 1 Action Popups -->
     <div id="modal-p1-overview" class="modal-overlay"><a href="#modal-p1" class="modal-close">&times;</a>
         <div class="modal-wrapper">
             <h3>Project Overview</h3><img class="gallery-main-image" src="Project overview RS.png">
@@ -2432,6 +2514,7 @@
         </div>
     </div>
 
+    <!-- Project 2 Gallery Overlay -->
     <div id="modal-p2" class="modal-overlay">
         <a href="#projects" class="modal-close">&times;</a>
         <div class="modal-wrapper">
@@ -2463,6 +2546,7 @@
         </div>
     </div>
 
+    <!-- Nested Project 2 Action Popups -->
     <div id="modal-p2-overview" class="modal-overlay"><a href="#modal-p2" class="modal-close">&times;</a>
         <div class="modal-wrapper">
             <h3>Project Overview</h3><img class="gallery-main-image" src="EA Project Overview.png">
@@ -2476,6 +2560,7 @@
         </div>
     </div>
 
+    <!-- Project 3 Gallery Overlay -->
     <div id="modal-p3" class="modal-overlay">
         <a href="#projects" class="modal-close">&times;</a>
         <div class="modal-wrapper">
@@ -2501,6 +2586,7 @@
         </div>
     </div>
 
+    <!-- Nested Project 3 Action Popups -->
     <div id="modal-p3-overview" class="modal-overlay"><a href="#modal-p3" class="modal-close">&times;</a>
         <div class="modal-wrapper">
             <h3>Project Overview</h3><img class="gallery-main-image" src="Blinkit Project Overview.png">
@@ -2512,6 +2598,7 @@
         </div>
     </div>
 
+    <!-- ================= LIGHTBOX OVERLAYS FOR CERTIFICATES ================= -->
     <div id="modal-cert2" class="modal-overlay"><a href="#certifications" class="modal-close">&times;</a>
         <div class="modal-wrapper">
             <h3 class="modal-gallery-title">Introduction to Data Science</h3><img class="single-modal-img"
@@ -2549,6 +2636,29 @@
         const header = document.querySelector('.site-header');
         const sections = document.querySelectorAll('main, section');
         const navLinks = document.querySelectorAll('.nav-links a');
+
+        /* NEW ADDITION: Mobile sliding navigation drawer activation logic */
+        const menuBtn = document.getElementById('menu-toggle-btn');
+        const sidePanel = document.getElementById('sliding-nav-panel');
+
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sidePanel.classList.toggle('active');
+        });
+
+        // Close sidebar menu panel when hitting a jump navigation link item anchor tag
+        document.querySelectorAll('.nav-links a, .nav-right-block .btn-contact').forEach(link => {
+            link.addEventListener('click', () => {
+                sidePanel.classList.remove('active');
+            });
+        });
+
+        // Close when clicking anywhere outside the menu panel area
+        document.addEventListener('click', (e) => {
+            if (!sidePanel.contains(e.target) && !menuBtn.contains(e.target)) {
+                sidePanel.classList.remove('active');
+            }
+        });
 
         /* Intercept form submissions using fetch API to prevent page reloading */
         const contactForm = document.getElementById('portfolio-form');
