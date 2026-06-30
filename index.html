@@ -480,15 +480,47 @@
         }
 
         /* ================= LIGHT SECTIONS (ABOUT, PROJECTS, CERTS) ================= */
-        .light-section {
-            background-color: #ffffff !important;
-            color: #333333 !important;
-            padding: 150px 0 100px 0;
-            position: relative;
-            z-index: 20;
-            overflow: hidden;
-        }
+/* ================= FORCE WHITE METRIC OVERRIDES FOR LIGHT SECTIONS ================= */
+.light-section { 
+    background-color: #ffffff !important; 
+    color: #333333 !important; 
+    padding: 150px 0 100px 0; 
+    position: relative; 
+    z-index: 20; 
+    overflow: hidden;
+    
+    /* Strict layout flags to override mobile browser force-inverters */
+    forced-color-adjust: none !important;
+}
 
+/* Ensure all sub-nested typography labels inside light sections stay solid dark navy */
+.light-section h2,
+.light-section h3,
+.light-section h4,
+.light-section strong,
+.light-section .edu-titles h3,
+.light-section .edu-focus-card h4 {
+    color: #170d58 !important;
+    forced-color-adjust: none !important;
+}
+
+.light-section p,
+.light-section li {
+    color: #555555 !important;
+    forced-color-adjust: none !important;
+}
+
+/* Ensure card backgrounds inside light sections stay pure white */
+.light-section .edu-card {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(46, 31, 141, 0.08) !important;
+}
+
+.light-section .edu-focus-card {
+    background-color: #fff8eb !important;
+    background: #fff8eb !important;
+}
         .light-section::before {
             content: "";
             position: absolute;
