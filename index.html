@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- STRICT THEME DEFENSE: Forces mobile phone color inverters to respect our native dark theme -->
     <meta name="color-scheme" content="dark">
     <title>Nikhil Jacob J. | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <style>
-        /* ================= BASE RESET & TYPOGRAPHY ================= */
+        /* ================= BASE RESET & ANTI-INVERSION SYSTEM ================= */
         * {
             margin: 0;
             padding: 0;
@@ -19,10 +18,9 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Forces mobile browser forced dark-modes to leave our hex definitions completely untouched */
         :root {
-            color-scheme: dark;
-            supported-color-schemes: dark;
+            color-scheme: dark !important;
+            supported-color-schemes: dark !important;
         }
 
         body {
@@ -126,7 +124,7 @@
             right: 28%;
         }
 
-        /* ================= HEADER & NAVIGATION ================= */
+        /* ================= HEADER & NAVIGATION (CENTER-ALIGNED OPTIONS) ================= */
         .site-header {
             position: fixed;
             top: 0;
@@ -136,12 +134,13 @@
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
+        /* RESTORED: Low transparency dark navy with heavy backdrop element filters */
         .site-header.scrolled {
-            background-color: rgba(23, 13, 88, 0.9) !important;
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            background-color: rgba(23, 13, 88, 0.92) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .navbar {
@@ -160,7 +159,6 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            z-index: 1010;
         }
 
         .logo-icon {
@@ -178,17 +176,14 @@
             color: #ffffff !important;
         }
 
-        .nav-right-block {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
+        /* ALIGNED ALMOST TO THE CENTER IN DESKTOP VIEWPORTS */
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
-            align-items: center;
+            gap: 35px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 50px;
         }
 
         .nav-links a {
@@ -197,6 +192,7 @@
             font-weight: 500;
             opacity: 0.8;
             transition: 0.3s;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover,
@@ -205,15 +201,12 @@
             opacity: 1;
         }
 
-        /* Mobile Menu Hamburger Trigger */
         .mobile-menu-trigger {
             display: none;
             background: transparent;
             border: none;
             color: #ffffff !important;
             cursor: pointer;
-            z-index: 1010;
-            padding: 5px;
         }
 
         /* Buttons */
@@ -261,6 +254,22 @@
             border-radius: 25px;
         }
 
+        /* Mobile Notice Ribbon styling */
+        .mobile-notice-ribbon {
+            display: none;
+            width: 100%;
+            background: #fff8eb !important;
+            color: #2e1f8d !important;
+            padding: 12px 20px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-align: center;
+            border-bottom: 2px solid #ffc13b;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
         /* ================= HERO SECTION ================= */
         .hero {
             display: flex;
@@ -278,7 +287,6 @@
         .hero-left h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: -5px;
         }
 
         .hero-left h1 {
@@ -339,6 +347,7 @@
             box-shadow: 0 10px 20px rgba(255, 193, 59, 0.3);
         }
 
+        /* CORRECTED FIXED BLOB ANIMATION ROUTINE */
         .hero-right {
             position: relative;
             width: 420px;
@@ -349,7 +358,7 @@
             background-size: cover;
             background-position: center;
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation: morphBlob 8s infinite ease-in-out;
+            animation: morphBlobLoop 6s infinite ease-in-out alternate;
             flex-shrink: 0;
         }
 
@@ -416,6 +425,33 @@
             bottom: 100px;
             right: -30px;
             animation-delay: 3s;
+        }
+
+        /* ================= FIXED ANIMATION KEYFRAMES ================= */
+        @keyframes morphBlobLoop {
+            0% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+
+            50% {
+                border-radius: 45% 55% 50% 50% / 55% 45% 55% 45%;
+            }
+
+            100% {
+                border-radius: 35% 65% 40% 60% / 65% 35% 65% 35%;
+            }
+        }
+
+        @keyframes floatBadge {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
         }
 
         /* ================= LIGHT SECTIONS (ABOUT, PROJECTS, CERTS) ================= */
@@ -571,7 +607,7 @@
             font-weight: 700;
         }
 
-        /* Symmetrical About Cards */
+        /* About Grid Layout Option Matrixes */
         .about-middle-row {
             display: flex;
             gap: 30px;
@@ -584,13 +620,20 @@
             flex: 1;
             border-radius: 15px;
             padding: 40px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .edu-card {
             background: #ffffff !important;
             border: 1px solid rgba(46, 31, 141, 0.08);
+        }
+
+        .edu-card h3 {
+            color: #170d58 !important;
+        }
+
+        .edu-card p {
+            color: #555555 !important;
         }
 
         .edu-focus-card {
@@ -602,21 +645,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-        }
-
-        .edu-card h3 {
-            color: #170d58 !important;
-        }
-
-        .edu-card p {
-            color: #555555 !important;
-        }
-
-        .edu-card:hover,
-        .edu-focus-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(46, 31, 141, 0.12);
-            border-color: rgba(255, 193, 59, 0.6);
         }
 
         .edu-header {
@@ -955,19 +983,6 @@
             color: #ffffff !important;
         }
 
-        .project-row-hint {
-            text-align: center;
-            font-size: 0.85rem;
-            color: #2e1f8d !important;
-            font-weight: 600;
-            background: #fff8eb !important;
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 20px;
-            margin: -20px auto 40px auto;
-            border: 1px solid rgba(255, 193, 59, 0.3);
-        }
-
         /* ================= EXPERIENCE SECTION ================= */
         .experience-section {
             padding: 100px 0;
@@ -1095,21 +1110,6 @@
             opacity: 0.025;
             z-index: 0;
             pointer-events: none;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .section-header h2 {
-            font-size: 2.2rem;
-            color: #170d58 !important;
-            font-weight: 800;
-            margin-bottom: 15px;
         }
 
         .skills-grid {
@@ -1401,20 +1401,7 @@
             box-shadow: 0 6px 20px rgba(255, 193, 59, 0.4);
         }
 
-        .form-status-alert {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #ffc13b !important;
-            margin-top: 20px;
-            text-align: center;
-            display: none;
-            background: rgba(255, 193, 59, 0.1) !important;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 193, 59, 0.3);
-        }
-
-        /* ================= LIGHTBOX MODAL OVERLAYS ================= */
+        /* ================= FIXED LIGHTBOX VIEWPORT MODALS ================= */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -1484,70 +1471,6 @@
             color: #ffffff !important;
         }
 
-        .modal-gallery-title {
-            color: #170d58 !important;
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-            text-align: left;
-        }
-
-        .modal-gallery-subtitle {
-            color: #666666 !important;
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
-        }
-
-        .modal-dark-btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            background: #170d58 !important;
-            color: #ffffff !important;
-            border: 1px solid #170d58 !important;
-            box-shadow: 0 4px 12px rgba(23, 13, 88, 0.15);
-            text-decoration: none;
-        }
-
-        .modal-dark-btn:hover {
-            background: #ffc13b !important;
-            color: #170d58 !important;
-            border-color: #ffc13b !important;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(255, 193, 59, 0.3);
-        }
-
-        .gallery-main-image {
-            width: 100%;
-            min-height: 250px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            border: 1px solid #eee;
-            object-fit: contain;
-        }
-
-        .gallery-sub-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .gallery-sub-grid img {
-            width: 100%;
-            min-height: 180px;
-            height: auto;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-            border: 1px solid #eee;
-        }
-
         .single-modal-img {
             max-width: 100%;
             max-height: 70vh;
@@ -1558,10 +1481,7 @@
             min-height: 300px;
         }
 
-        /* ==========================================================================
-           ================== MASTER MEDIA QUERIES FOR MOBILE MATRIX ================
-           ========================================================================== */
-
+        /* ================= Responsive Layout Rules Overrides ================= */
         @media (max-width: 992px) {
             .container {
                 padding: 0 24px;
@@ -1571,12 +1491,13 @@
                 padding: 20px 0;
             }
 
-            /* RE-ENGINEERED NAVIGATION DRAWER FOR ACCESSIBLE RESPONSIVE SCREEN WRAPPING */
+            /* Responsive side menu transformation drawer setup */
             .mobile-menu-trigger {
                 display: block;
+                z-index: 1010;
             }
 
-            .nav-right-block {
+            .nav-links {
                 position: fixed;
                 top: 0;
                 right: -100%;
@@ -1587,40 +1508,45 @@
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: flex-start;
-                gap: 40px;
-                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.3);
-                transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+                gap: 30px;
+                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
+                transition: right 0.4s ease;
                 z-index: 1005;
+                margin: 0;
             }
 
-            .nav-right-block.active {
+            .nav-links.active {
                 right: 0;
             }
 
-            .nav-links {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 25px;
-                width: 100%;
-            }
-
             .nav-links a {
-                font-size: 1.15rem;
+                font-size: 1.1rem;
                 width: 100%;
                 display: block;
             }
 
-            .nav-right-block .btn-contact {
-                width: 100%;
-                margin-top: 20px;
+            .navbar>.btn-contact {
+                display: none;
             }
 
-            /* Hero adjustments */
+            /* Hide raw top header clicker */
+            .nav-links .btn-contact {
+                display: block !important;
+                width: 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            /* Display the banner reminder ONLY during responsive device checks */
+            .mobile-notice-ribbon {
+                display: block;
+            }
+
             .hero {
                 flex-direction: column-reverse;
                 text-align: center;
                 justify-content: center;
-                gap: 50px;
+                gap: 40px;
                 padding-top: 100px;
             }
 
@@ -1633,10 +1559,6 @@
 
             .hero-left h1 {
                 font-size: 3.2rem;
-            }
-
-            .hero-left h2 {
-                font-size: 1.8rem;
             }
 
             .hero-buttons {
@@ -1681,15 +1603,10 @@
                 right: -20px;
             }
 
-            /* Content Section Adjustments */
             .about-top-row {
                 flex-direction: column;
                 gap: 40px;
                 text-align: center;
-            }
-
-            .about-text-column h2 {
-                font-size: 1.8rem;
             }
 
             .about-middle-row {
@@ -1697,27 +1614,9 @@
                 gap: 20px;
             }
 
-            .edu-card,
-            .edu-focus-card {
-                padding: 30px;
-            }
-
-            .focus-list {
-                grid-template-columns: 1fr;
-            }
-
             .contact-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
-            }
-
-            .contact-card-gradient,
-            .contact-form-gradient {
-                padding: 30px 20px;
-            }
-
-            .form-title {
-                font-size: 1.8rem;
             }
 
             .btn-send {
@@ -1735,24 +1634,6 @@
                 width: 260px;
                 height: 260px;
             }
-
-            .projects-grid,
-            .certs-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .project-metrics {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .metric-box {
-                height: 60px;
-            }
-
-            .gallery-sub-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -1767,8 +1648,7 @@
                     <span class="logo-text">Nikhil.</span>
                 </div>
 
-                <!-- Hamburguer SVG Trigger Icon (Toggles slide menu state) -->
-                <button class="mobile-menu-trigger" id="menu-toggle-btn" aria-label="Toggle Navigation Panel Menu">
+                <button class="mobile-menu-trigger" id="menu-toggle-btn" aria-label="Toggle menu options layout">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                         stroke-linecap="round" stroke-linejoin="round">
                         <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -1777,17 +1657,17 @@
                     </svg>
                 </button>
 
-                <div class="nav-right-block" id="sliding-nav-panel">
-                    <ul class="nav-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#experience">Experience</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#certifications">Certifications</a></li>
-                    </ul>
-                    <a href="#contact" class="btn btn-contact">Contact</a>
-                </div>
+                <ul class="nav-links" id="sliding-nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li style="display: none;" class="mobile-only-item"><a href="#contact"
+                            class="btn btn-contact">Contact</a></li>
+                </ul>
+                <a href="#contact" class="btn btn-contact">Contact</a>
             </nav>
         </div>
     </header>
@@ -1837,6 +1717,10 @@
     </div>
 
     <div class="container">
+        <div class="mobile-notice-ribbon" style="margin-top: 100px;">
+            💡 Note: For the best interactive data experience, please switch your mobile browser to "Desktop Site" mode.
+        </div>
+
         <main id="home" class="hero">
             <div class="hero-left">
                 <h2>Hello, I'm</h2>
@@ -1892,7 +1776,6 @@
         </main>
     </div>
 
-    <!-- ================= ABOUT SECTION ================= -->
     <section id="about" class="light-section">
         <div class="container">
             <div class="about-top-row">
@@ -1965,7 +1848,6 @@
         </div>
     </section>
 
-    <!-- ================= PROJECTS SECTION ================= -->
     <section id="projects" class="projects-section">
         <div class="container">
             <div class="section-header">
@@ -1978,7 +1860,6 @@
             </div>
 
             <div class="projects-grid">
-                <!-- Project 1 -->
                 <div class="project-card">
                     <a href="#modal-p1" class="project-img">
                         <img src="Executive Dashboard.png" alt="Retail Sales Analysis & Dashboard">
@@ -2014,7 +1895,6 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
                 <div class="project-card">
                     <a href="#modal-p2" class="project-img">
                         <img src="EA Cover image.png" alt="Employee Attrition Prediction Case Study">
@@ -2049,7 +1929,6 @@
                     </div>
                 </div>
 
-                <!-- Project 3 -->
                 <div class="project-card">
                     <a href="#modal-p3" class="project-img">
                         <img src="Blinkit Dashboard Image.png" alt="Blinkit Analysis Dashboard">
@@ -2088,7 +1967,6 @@
         </div>
     </section>
 
-    <!-- ================= EXPERIENCE SECTION ================= -->
     <section id="experience" class="experience-section">
         <div class="container">
             <span class="sub-heading">EXPERIENCE</span>
@@ -2135,7 +2013,6 @@
         </div>
     </section>
 
-    <!-- ================= SKILLS SECTION ================= -->
     <section id="skills" class="skills-section">
         <div class="container">
             <div class="section-header">
@@ -2239,7 +2116,6 @@
         </div>
     </section>
 
-    <!-- ================= CERTIFICATIONS SECTION ================= -->
     <section id="certifications" class="light-section"
         style="background-color: #ffffff; border-top: 1px solid #eaeaea;">
         <div class="container">
@@ -2250,7 +2126,6 @@
             </div>
 
             <div class="certs-grid">
-                <!-- Cert 1 -->
                 <div class="cert-card-box">
                     <div class="cert-title-area">
                         <h3>Google Data Analytics Professional</h3>
@@ -2262,7 +2137,6 @@
                             class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
-                <!-- Cert 2 -->
                 <div class="cert-card-box">
                     <div class="cert-title-area">
                         <h3>Introduction to Data Science</h3>
@@ -2273,7 +2147,6 @@
                             target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
-                <!-- Cert 3 -->
                 <div class="cert-card-box">
                     <div class="cert-title-area">
                         <h3>How to Use Data Visualization to Make Better Decisions—Faster</h3>
@@ -2284,7 +2157,6 @@
                             target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
-                <!-- Cert 4 -->
                 <div class="cert-card-box">
                     <div class="cert-title-area">
                         <h3>Data Visualization for Data Analysts and Analytics</h3>
@@ -2295,7 +2167,6 @@
                             target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
-                <!-- Cert 5 -->
                 <div class="cert-card-box">
                     <div class="cert-title-area">
                         <h3>Learning SQL Programming</h3>
@@ -2306,7 +2177,6 @@
                             target="_blank" class="btn-cert btn-cert-secondary">Credential</a>
                     </div>
                 </div>
-                <!-- Cert 6 -->
                 <div class="cert-card-box">
                     <div class="cert-title-area">
                         <h3>Quality Management Foundations</h3>
@@ -2321,7 +2191,6 @@
         </div>
     </section>
 
-    <!-- ================= THEME INTEGRATED CONTACT SECTION ================= -->
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header" style="text-align: left; align-items: flex-start; margin-bottom: 50px;">
@@ -2333,10 +2202,8 @@
             </div>
 
             <div class="contact-grid">
-                <!-- Info Column Wrapper -->
                 <div class="contact-card-gradient">
                     <div class="contact-info-list">
-                        <!-- Email -->
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2352,7 +2219,6 @@
                                 <a href="mailto:nikhiljacobj@gmail.com">nikhiljacobj@gmail.com</a>
                             </div>
                         </div>
-                        <!-- Phone -->
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2367,7 +2233,6 @@
                                 <p>+91 89219 85735</p>
                             </div>
                         </div>
-                        <!-- Location -->
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2381,7 +2246,6 @@
                                 <p>Kerala, India</p>
                             </div>
                         </div>
-                        <!-- Linkedin -->
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2399,7 +2263,6 @@
                                     target="_blank">linkedin.com/in/nikhil-jacob-j/</a>
                             </div>
                         </div>
-                        <!-- Github -->
                         <div class="contact-info-item">
                             <div class="contact-icon-frame">
                                 <svg height="18" width="18" viewBox="0 0 16 16" fill="currentColor">
@@ -2425,7 +2288,6 @@
                     </a>
                 </div>
 
-                <!-- Web Form Column Wrapper -->
                 <div class="contact-form-gradient">
                     <h3 class="form-title">Contact Form</h3>
                     <form id="portfolio-form" action="https://formspree.io/f/maqgbgol" method="POST">
@@ -2461,9 +2323,6 @@
         </div>
     </section>
 
-    <!-- ================= LIGHTBOX OVERLAY GALLERY WINDOWS ================= -->
-
-    <!-- Project 1 Gallery Overlay -->
     <div id="modal-p1" class="modal-overlay">
         <a href="#projects" class="modal-close">&times;</a>
         <div class="modal-wrapper">
@@ -2494,7 +2353,6 @@
         </div>
     </div>
 
-    <!-- Nested Project 1 Action Popups -->
     <div id="modal-p1-overview" class="modal-overlay"><a href="#modal-p1" class="modal-close">&times;</a>
         <div class="modal-wrapper">
             <h3>Project Overview</h3><img class="gallery-main-image" src="Project overview RS.png">
@@ -2514,7 +2372,6 @@
         </div>
     </div>
 
-    <!-- Project 2 Gallery Overlay -->
     <div id="modal-p2" class="modal-overlay">
         <a href="#projects" class="modal-close">&times;</a>
         <div class="modal-wrapper">
@@ -2546,7 +2403,6 @@
         </div>
     </div>
 
-    <!-- Nested Project 2 Action Popups -->
     <div id="modal-p2-overview" class="modal-overlay"><a href="#modal-p2" class="modal-close">&times;</a>
         <div class="modal-wrapper">
             <h3>Project Overview</h3><img class="gallery-main-image" src="EA Project Overview.png">
@@ -2560,7 +2416,6 @@
         </div>
     </div>
 
-    <!-- Project 3 Gallery Overlay -->
     <div id="modal-p3" class="modal-overlay">
         <a href="#projects" class="modal-close">&times;</a>
         <div class="modal-wrapper">
@@ -2586,7 +2441,6 @@
         </div>
     </div>
 
-    <!-- Nested Project 3 Action Popups -->
     <div id="modal-p3-overview" class="modal-overlay"><a href="#modal-p3" class="modal-close">&times;</a>
         <div class="modal-wrapper">
             <h3>Project Overview</h3><img class="gallery-main-image" src="Blinkit Project Overview.png">
@@ -2598,7 +2452,6 @@
         </div>
     </div>
 
-    <!-- ================= LIGHTBOX OVERLAYS FOR CERTIFICATES ================= -->
     <div id="modal-cert2" class="modal-overlay"><a href="#certifications" class="modal-close">&times;</a>
         <div class="modal-wrapper">
             <h3 class="modal-gallery-title">Introduction to Data Science</h3><img class="single-modal-img"
@@ -2634,29 +2487,27 @@
 
     <script>
         const header = document.querySelector('.site-header');
-        const sections = document.querySelectorAll('main, section');
+        const sections = document.querySelectorAll('main, section, #contact');
         const navLinks = document.querySelectorAll('.nav-links a');
 
-        /* NEW ADDITION: Mobile sliding navigation drawer activation logic */
+        /* Mobile layout drawer menu link interaction panel */
         const menuBtn = document.getElementById('menu-toggle-btn');
-        const sidePanel = document.getElementById('sliding-nav-panel');
+        const slideMenu = document.getElementById('sliding-nav-menu');
 
         menuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            sidePanel.classList.toggle('active');
+            slideMenu.classList.toggle('active');
         });
 
-        // Close sidebar menu panel when hitting a jump navigation link item anchor tag
-        document.querySelectorAll('.nav-links a, .nav-right-block .btn-contact').forEach(link => {
+        document.querySelectorAll('.nav-links a, .btn-contact').forEach(link => {
             link.addEventListener('click', () => {
-                sidePanel.classList.remove('active');
+                slideMenu.classList.remove('active');
             });
         });
 
-        // Close when clicking anywhere outside the menu panel area
         document.addEventListener('click', (e) => {
-            if (!sidePanel.contains(e.target) && !menuBtn.contains(e.target)) {
-                sidePanel.classList.remove('active');
+            if (!slideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+                slideMenu.classList.remove('active');
             }
         });
 
@@ -2687,7 +2538,7 @@
                 alert('Connection error. Please try again.');
             } finally {
                 submitBtn.style.opacity = '1';
-                submitBtn.innerHTML = `Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`;
+                submitBtn.innerHTML = `Send Message <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-6.054-2.015z"/></svg>`;
             }
         });
 
