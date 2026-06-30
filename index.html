@@ -240,6 +240,7 @@
             justify-content: space-between;
             min-height: calc(100vh - 120px);
             padding-top: 120px;
+            padding-bottom: 40px;
         }
 
         .hero-left {
@@ -283,7 +284,6 @@
             align-items: center;
         }
 
-        /* High contrast container updates for profile home social vectors */
         .hero-socials {
             display: flex;
             gap: 15px;
@@ -322,6 +322,7 @@
             background-position: center;
             border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
             animation: morphBlob 8s infinite ease-in-out;
+            flex-shrink: 0;
         }
 
         .illustration-placeholder {
@@ -426,7 +427,7 @@
         .light-section {
             background-color: #ffffff;
             color: #333333;
-            padding: 150px 0 100px 0;
+            padding: 120px 0 80px 0;
             position: relative;
             z-index: 20;
             overflow: hidden;
@@ -727,7 +728,7 @@
 
         /* ================= PROJECTS SECTION ================= */
         .projects-section {
-            padding: 150px 0 100px 0;
+            padding: 120px 0 80px 0;
             background-color: #f9fbfd;
             position: relative;
             overflow: hidden;
@@ -751,7 +752,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             grid-auto-rows: 1fr;
             gap: 30px;
             margin-top: 40px;
@@ -1106,9 +1107,10 @@
             margin-bottom: 15px;
         }
 
+        /* OPTIMIZED: Responsive grids that collapse neatly on smaller viewports */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             margin-top: 40px;
         }
@@ -1168,14 +1170,14 @@
         .certifications-section {
             background: #ffffff;
             border-top: 1px solid #eaeaea;
-            padding: 150px 0 100px 0;
+            padding: 120px 0 80px 0;
             position: relative;
             z-index: 20;
         }
 
         .certs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
@@ -1256,7 +1258,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* CORRECTED: Contact layout boxes are now perfectly equal in length and width */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1408,7 +1409,7 @@
             border: 1px solid rgba(255, 193, 59, 0.3);
         }
 
-        /* ================= FIXED VIEWPORT MODAL STYLINGS ================= */
+        /* ================= LIGHTBOX MODAL OVERLAYS ================= */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -1551,6 +1552,165 @@
             margin: 0 auto;
             min-height: 300px;
         }
+
+        /* ==========================================================================
+           ================== MASTER MEDIA QUERIES FOR MOBILE MATRIX ================
+           ========================================================================= */
+
+        @media (max-width: 992px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            /* Navbar adjustments */
+            .navbar {
+                padding: 20px 0;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            /* Hero single-column optimization packing */
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+                gap: 50px;
+                padding-top: 100px;
+            }
+
+            .hero-left {
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-left h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero-left h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 320px;
+                gap: 15px;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .hero-socials {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .hero-right {
+                margin-left: 0;
+                width: 320px;
+                height: 320px;
+            }
+
+            .glass-badge {
+                font-size: 0.75rem;
+                padding: 8px 16px;
+            }
+
+            .badge-1 {
+                top: 20px;
+                right: -10px;
+            }
+
+            .badge-2 {
+                top: 110px;
+                left: -20px;
+            }
+
+            .badge-3 {
+                bottom: 60px;
+                right: -20px;
+            }
+
+            /* About structural grid collapse */
+            .about-top-row {
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .about-text-column h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-middle-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .edu-card,
+            .edu-focus-card {
+                padding: 30px;
+            }
+
+            .focus-list {
+                grid-template-columns: 1fr;
+            }
+
+            /* Symmetrical Contact box breaks into single row columns */
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-card-gradient,
+            .contact-form-gradient {
+                padding: 30px 20px;
+            }
+
+            .form-title {
+                font-size: 1.8rem;
+            }
+
+            .btn-send {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-left h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-right {
+                width: 260px;
+                height: 300px;
+            }
+
+            .projects-grid,
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-metrics {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .metric-box {
+                height: 60px;
+            }
+
+            .gallery-sub-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -1656,7 +1816,7 @@
                             title="GitHub Profile">
                             <svg height="20" width="22" viewBox="0 0 16 16" fill="currentColor">
                                 <path
-                                    d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82A7.48 7.48 0 0 0 8 2.93c-.68.004-1.36.09-2 .26-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.495 0 0 1 0 8c0-4.42 3.58-8 8-8Z">
+                                    d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82A7.48 7.48 0 0 0 8 2.93c-.68.004-1.36.09-2 .26-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.495 0 0 1 0 8c0-4.42 3.58;8 8-8Z">
                                 </path>
                             </svg>
                         </a>
@@ -1933,8 +2093,7 @@
                     </div>
                     <h3>Programming</h3>
                     <div class="tag-cloud">
-                        <span>Python</span><span>SQL</span><span>C</span><span>R</span><span>Verilog</span>
-                    </div>
+                        <span>Python</span><span>SQL</span><span>C</span><span>R</span><span>Verilog</span></div>
                 </div>
 
                 <div class="skill-category">
@@ -2159,7 +2318,7 @@
                                 </svg>
                             </div>
                             <div class="contact-info-text">
-                                <span>Linkedin</span>
+                                <span>LinkedIn</span>
                                 <a href="https://linkedin.com/in/nikhil-jacob-j/"
                                     target="_blank">linkedin.com/in/nikhil-jacob-j/</a>
                             </div>
@@ -2173,7 +2332,7 @@
                                 </svg>
                             </div>
                             <div class="contact-info-text">
-                                <span>Github</span>
+                                <span>GitHub</span>
                                 <a href="https://github.com/NIKHIL-07" target="_blank">github.com/NIKHIL-07</a>
                             </div>
                         </div>
@@ -2324,7 +2483,7 @@
             <p class="modal-gallery-subtitle">Comprehensive optimization performance dashboards analyzing grocery sales
                 matrix indices.</p>
             <div
-                style="border-top: none; padding-top: 0; margin-bottom: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+                style="border-top: none; padding-top: 0; margin-bottom: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
                 <a href="https://github.com/NIKHIL-07/Blinkit-Sales-Analytics-Dashboard/tree/main" target="_blank"
                     class="btn modal-dark-btn btn-sm">
                     <svg height="16" width="16" viewBox="0 0 16 16" fill="currentColor"
