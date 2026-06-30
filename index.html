@@ -997,19 +997,19 @@
         }
 
         /* Pro-Tip project banner text */
-        .project-row-hint {
-            text-align: center;
-            font-size: 0.85rem;
-            color: #2e1f8d !important;
-            font-weight: 600;
-            background: #fff8eb !important;
-            display: inline-block;
-            padding: 6px 16px;
-            border-radius: 20px;
-            margin: -20px auto 40px auto;
-            border: 1px solid rgba(255, 193, 59, 0.3);
-        }
-
+/* ================= FIX: REMOVE NEGATIVE MARGIN OVERLAP ================= */
+.project-row-hint { 
+    text-align: center; 
+    font-size: 0.85rem; 
+    color: #2e1f8d !important; 
+    font-weight: 600; 
+    background: #fff8eb !important; 
+    display: inline-block; 
+    padding: 8px 20px; 
+    border-radius: 20px; 
+    margin: 20px auto 10px auto; /* Changed from negative top margin to clean positive spacing */
+    border: 1px solid rgba(255, 193, 59, 0.3); 
+}
         /* ================= EXPERIENCE SECTION ================= */
         .experience-section {
             padding: 100px 0;
