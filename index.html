@@ -863,11 +863,12 @@
             cursor: zoom-in;
         }
 
+        /* ================= FIX: PREVENT DASHBOARD THUMBNAIL CROPPING ================= */
         .project-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: 50% 10%;
+            object-fit: contain;
+            /* Changed from cover to contain so the entire image fits beautifully */
             position: relative;
             z-index: 1;
         }
@@ -2047,9 +2048,10 @@
                     </div>
                 </div>
 
+                <!-- Project 2 (UPDATED COVER & NAVIGATION) -->
                 <div class="project-card">
                     <a href="#modal-p2" class="project-img">
-                        <img src="EA Cover image.png" alt="Employee Attrition Prediction Case Study">
+                        <img src="Employee_Attrition_Dashboard.png" alt="Employee Attrition Prediction Case Study">
                     </a>
                     <div class="project-content">
                         <span class="project-category">2. Employee Attrition (ML)</span>
@@ -2182,7 +2184,8 @@
                     </div>
                     <h3>Programming</h3>
                     <div class="tag-cloud">
-                        <span>Python</span><span>SQL</span><span>C</span><span>R</span><span>Verilog</span></div>
+                        <span>Python</span><span>SQL</span><span>C</span><span>R</span><span>Verilog</span>
+                    </div>
                 </div>
 
                 <div class="skill-category">
@@ -2438,22 +2441,33 @@
         </div>
     </div>
 
+    <!-- EXPANDED LIGHTBOX WINDOW FOR PROJECT 2 (UPDATED COVERS & NAVIGATION ACTIONS) -->
     <div id="modal-p2" class="modal-overlay">
         <a href="#projects" class="modal-close">&times;</a>
         <div class="modal-wrapper">
             <h3 class="modal-gallery-title">Employee Attrition Prediction Analysis</h3>
             <p class="modal-gallery-subtitle">End-to-end predictive modeling architecture and workforce attrition metric
                 evaluations.</p>
+
+            <!-- Action Row: Added Live Tableau Dashboard Navigation Link Layer -->
+            <!-- Action Row: Rebuilt with standard matching dark button themes -->
             <div
-                style="border-top: none; padding-top: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;">
+                style="border-top: none; padding-top: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 20px;">
                 <a href="https://github.com/NIKHIL-07/employee-attrition-app" target="_blank" rel="noopener noreferrer"
-                    class="btn modal-dark-btn btn-sm">Github Repo</a>
-                <a href="#modal-p2-overview" class="btn modal-dark-btn btn-sm">Project Overview</a>
+                    class="btn modal-dark-btn btn-sm"><i class="fa-brands fa-github"></i> Github Repo</a>
+                <a href="https://public.tableau.com/app/profile/nikhil.j1424/viz/Employee_Attrition_Dashboard_17834928133760/HRANALYTICSDASHBOARD"
+                    target="_blank" rel="noopener noreferrer" class="btn modal-dark-btn btn-sm"><i
+                        class="fa-solid fa-chart-pie"></i> Dashboard</a>
+                <a href="#modal-p2-overview" class="btn modal-dark-btn btn-sm"><i class="fa-solid fa-file-lines"></i>
+                    Project Overview</a>
                 <a href="https://employee-attrition-app-v2wuy9kzwtuxeq3tybjh7b.streamlit.app/" target="_blank"
-                    rel="noopener noreferrer" class="btn modal-dark-btn btn-sm">Streamlit Deployment</a>
-                <a href="#modal-p2-python" class="btn modal-dark-btn btn-sm">Python Visualization</a>
+                    rel="noopener noreferrer" class="btn modal-dark-btn btn-sm"><i class="fa-solid fa-rocket"></i>
+                    Streamlit App</a>
+                <a href="#modal-p2-python" class="btn modal-dark-btn btn-sm"><i class="fa-brands fa-python"></i> Python
+                    Visuals</a>
             </div>
-            <img class="gallery-main-image" src="EA Cover image.png">
+
+            <img class="gallery-main-image" src="Employee_Attrition_Dashboard.png" alt="Main Attrition Framework Frame">
             <div class="gallery-sub-grid">
                 <img src="EAV6.png"><img src="EAV1.png"><img src="EAV2.png"><img src="EAV3.png"><img src="EAV4.png"><img
                     src="EAV5.png">
