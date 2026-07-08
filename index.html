@@ -1571,26 +1571,37 @@
         /* ==========================================================================
            CORE MOBILE STABILIZATION LAYER (MAX-WIDTH: 992PX)
            ========================================================================== */
+        /* ==========================================================================
+   FINAL FIXED MOBILE PERFORMANCE OVERHAUL LAYER (MAX-WIDTH: 992PX)
+   ========================================================================== */
         @media (max-width: 992px) {
+
+            /* 1. Kill the engine redraw loops to permanently stop blue flickering */
+            .bg-graphics,
+            .bg-chart,
+            .bg-graphics::before {
+                display: none !important;
+                background: none !important;
+                background-image: none !important;
+                animation: none !important;
+            }
+
+            /* Lock the mobile background color flat so blue cannot flash through */
+            body {
+                background: #2e1f8d !important;
+                overscroll-behavior-y: none;
+                /* Stops mobile rubber-banding stretch lag */
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* 2. Standardize containers to eliminate side-scrolling wobble */
             .container {
-                padding: 0 24px;
+                padding: 0 20px !important;
+                overflow: hidden !important;
             }
 
             .navbar {
-                padding: 20px 0;
-            }
-
-            /* 1. Remove background chart loops completely to stop flickering/blue screen on phone */
-            .bg-graphics {
-                display: none !important;
-            }
-
-            .bg-chart {
-                display: none !important;
-            }
-
-            body {
-                background: #2e1f8d !important;
+                padding: 15px 0;
             }
 
             .mobile-menu-trigger {
@@ -1601,19 +1612,18 @@
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 280px;
+                width: 260px;
                 height: 100vh;
                 background-color: #170d58 !important;
-                padding: 100px 30px;
+                padding: 100px 24px;
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: flex-start;
                 gap: 25px;
                 box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
-                transition: right 0.4s cubic-bezier(0.1, 0.9, 0.2, 1);
+                transition: right 0.3s ease;
                 z-index: 1005;
                 margin: 0;
-                padding-left: 30px;
             }
 
             .nav-links.active {
@@ -1621,7 +1631,7 @@
             }
 
             .nav-links a {
-                font-size: 1.15rem;
+                font-size: 1.1rem;
                 width: 100%;
                 display: block;
                 color: #ffffff !important;
@@ -1631,43 +1641,47 @@
                 display: none;
             }
 
-            .nav-links .mobile-only-item {
-                display: block !important;
-                width: 100%;
-            }
-
             .mobile-notice-ribbon {
                 display: block;
+                margin-top: 90px;
             }
 
-            /* 2. Format columns cleanly into a static layout grid */
+            /* 3. Streamline Hero Section grid spaces */
             .hero {
                 flex-direction: column-reverse !important;
                 text-align: center !important;
                 justify-content: center !important;
-                gap: 30px !important;
-                padding-top: 130px !important;
-                padding-bottom: 40px !important;
+                gap: 25px !important;
+                padding-top: 30px !important;
+                padding-bottom: 30px !important;
                 height: auto !important;
                 min-height: auto !important;
             }
 
-            .hero-left {
-                max-width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+            .hero-left h1 {
+                font-size: 2.3rem !important;
+                margin-bottom: 10px;
             }
 
-            .hero-left h1 {
-                font-size: 3.2rem;
+            .hero-left h2 {
+                font-size: 1.6rem !important;
+            }
+
+            .hero-left h3 {
+                font-size: 1.2rem !important;
+                margin-bottom: 15px;
+            }
+
+            .hero-left p {
+                font-size: 0.95rem !important;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 width: 100%;
-                max-width: 320px;
-                gap: 15px;
+                max-width: 280px;
+                gap: 12px;
+                margin: 0 auto;
             }
 
             .hero-buttons .btn {
@@ -1676,47 +1690,42 @@
 
             .hero-socials {
                 margin-left: 0;
-                margin-top: 10px;
+                margin-top: 5px;
+                justify-content: center;
             }
 
-            /* 3. Turn off blob animations to improve load time and touch stability */
+            /* 4. Kill active morph animations on phone screen views */
             .hero-right {
                 margin: 0 auto !important;
-                width: 300px !important;
-                height: 300px !important;
+                width: 240px !important;
+                height: 240px !important;
                 animation: none !important;
                 border-radius: 50% !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: center !important;
+                background-color: #ffc13b !important;
+                transform: none !important;
             }
 
             .profile-img {
-                transform: scale(1.65) !important;
-                position: relative !important;
-                z-index: 10 !important;
+                transform: scale(1.6) !important;
             }
 
-            /* Hide the absolute tags inside the profile widget wrapper */
+            /* Force absolute floating badges off on phone to clear space */
             .hero-right .glass-badge {
                 display: none !important;
             }
 
-            /* 4. Display the badges stacked cleanly underneath the profile image widget layout */
+            /* Stack layout badges underneath portrait cleanly */
             .hero-right-badges-container {
                 position: relative !important;
                 display: flex !important;
                 flex-wrap: wrap !important;
                 justify-content: center !important;
-                gap: 12px !important;
-                margin-top: 25px !important;
+                gap: 10px !important;
+                margin: 20px auto 0 auto !important;
                 width: 100% !important;
                 height: auto !important;
                 top: auto !important;
                 left: auto !important;
-                right: auto !important;
-                bottom: auto !important;
             }
 
             .glass-badge {
@@ -1725,23 +1734,26 @@
                 align-items: center !important;
                 top: auto !important;
                 left: auto !important;
-                right: auto !important;
-                bottom: auto !important;
                 margin: 0 !important;
                 transform: none !important;
                 animation: none !important;
-                font-size: 0.85rem !important;
-                padding: 10px 20px !important;
-                background: rgba(23, 13, 88, 0.9) !important;
+                font-size: 0.8rem !important;
+                padding: 8px 14px !important;
+                background: rgba(23, 13, 88, 0.95) !important;
                 border: 1px solid rgba(255, 193, 59, 0.4) !important;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
-                z-index: 50 !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
             }
 
+            /* 5. Fix card layouts and grid spacing */
             .about-top-row {
                 flex-direction: column;
-                gap: 40px;
+                gap: 30px;
                 text-align: center;
+            }
+
+            .about-image-wrapper {
+                width: 260px;
+                height: 260px;
             }
 
             .about-middle-row {
@@ -1749,43 +1761,67 @@
                 gap: 20px;
             }
 
+            .edu-card,
+            .edu-focus-card {
+                padding: 25px !important;
+            }
+
+            .focus-list {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr !important;
+                gap: 25px;
+            }
+
+            .project-card {
+                height: auto !important;
+            }
+
+            .project-tags span {
+                max-width: 47%;
+            }
+
             .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+
+            .skill-category {
+                padding: 20px;
+            }
+
+            .certs-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 25px;
+            }
+
+            .contact-card-gradient,
+            .contact-form-gradient {
+                padding: 25px;
             }
 
             .btn-send {
                 width: 100%;
                 justify-content: center;
             }
-
-            .modal-wrapper {
-                padding: 25px 15px;
-                width: 95%;
-            }
-
-            .single-modal-img,
-            .gallery-main-image {
-                max-height: 45vh !important;
-            }
-
-            .gallery-sub-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         @media (max-width: 480px) {
             .hero-left h1 {
-                font-size: 2.5rem;
+                font-size: 2.1rem !important;
             }
 
             .hero-right {
-                width: 250px !important;
-                height: 250px !important;
+                width: 200px !important;
+                height: 200px !important;
             }
         }
     </style>
